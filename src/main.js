@@ -10,6 +10,7 @@ import 'amfe-flexible'
 
 // 加载全局css样式
 import './styles/index.less'
+// 全局注册vant
 Vue.use(Vant)
 
 Vue.config.productionTip = false

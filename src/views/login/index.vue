@@ -109,13 +109,14 @@ export default {
       try {
         const res = await login(user)
         console.log('登陆成功', res)
+        this.$store.commit('setUser', res.data.data)
         this.$toast.success('登陆成功')
       } catch (err) {
         if (err.response.status === 400) {
-          console.log('手机号或验证码不对')
+          // console.log('手机号或验证码不对')
           this.$toast.fail('手机号或验证码不对')
         } else {
-          console.log('登陆失败', err)
+          // console.log('登陆失败', err)
           this.$toast.fail('登陆失败,请稍后重试', err)
         }
       }
@@ -124,7 +125,7 @@ export default {
       // 1.校验手机号
       try {
         await this.$refs.loginForm.validate('mobile')
-        console.log('验证成功')
+        // console.log('验证成功')
       } catch (err) {
         return console.log('验证失败', err)
       }
